@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shopping.model.UserMapper">
+
+	<!-- 数据表和实体类的映射 -->
+	<resultMap type="User" id="UserMapper">
+		<id property="id" column="id"/>
+		<result property="userName" column="username"/>
+		<result property="password" column="password"/>
+	</resultMap>
+	
+	<select id="getUser" parameterType="String" resultType="String">
+		select username from user where username = #{userName}
+	</select>
+	
+	<select id="login" parameterType="User" resultMap="UserMapper">
+		select * from user 
+		where username = #{userName} and password = #{password}
+	</select>
+	
+	<insert id="register" parameterType="User">
+		insert into user(username,password) values(#{userName},#{password})
+	</insert>
+	
+	
+</mapper>
