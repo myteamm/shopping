@@ -10,11 +10,11 @@ import com.shopping.model.User;
 @Service
 public class UserService {
 	
-	private static final String LOGIN_SUCCESS = "login_success";
-	private static final String LOGIN_FAIL = "login_fail";
-	private static final String REGISTER_SUCCESS = "register_success";
-	private static final String USERNAME_ALREADY_EXIST = "username_already_exist";
-	private static final String USERNAME_NOT_EXIST = "username_not_exist";
+	private static final String LOGIN_SUCCESS = "{\"status\":\"login_success\"}";
+	private static final String LOGIN_FAIL = "{\"status\":\"login_fail\"}";
+	private static final String REGISTER_SUCCESS = "{\"status\":\"register_success\"}";
+	private static final String USERNAME_ALREADY_EXIST = "{\"status\":\"username_already_exist\"}";
+	private static final String USERNAME_NOT_EXIST = "{\"status\":\"username_not_exist\"}";
 	
 	@Resource
 	private UserDao userDao;
