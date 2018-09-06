@@ -1,6 +1,6 @@
 package com.shopping.model;
 
-import java.util.Date;
+import net.sf.json.JSONObject;
 
 public class Goods {
 
@@ -14,9 +14,9 @@ public class Goods {
 
 	private double marketPrice;
 
-	private Date startTime;
+	private String startTime;
 
-	private Date endTime;
+	private String endTime;
 
 	private int status;
 
@@ -64,19 +64,19 @@ public class Goods {
 		this.marketPrice = marktPrice;
 	}
 
-	public Date getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Date startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public Date getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Date endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
@@ -106,9 +106,7 @@ public class Goods {
 
 	@Override
 	public String toString() {
-		return "Goods [goodsId=" + goodsId + ", description=" + description + ", imageUrl=" + imageUrl + ", priceSpike="
-				+ seckillPrice + ", marktPrice=" + marketPrice + ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", status=" + status + "]";
+		return JSONObject.fromObject(this).toString();
 	}
 
 }

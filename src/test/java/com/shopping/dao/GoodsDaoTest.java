@@ -34,21 +34,21 @@ public class GoodsDaoTest {
 		goods.setImageUrl("imageUrl");
 		goods.setMarketPrice(299.00);
 		goods.setSeckillPrice(1.00);
-		goods.setStartTime(sdf.parse("2018-8-8 10:00:00"));
-		goods.setEndTime(sdf.parse("2018-8-8 11:00:00"));
+		goods.setStartTime("2018-8-8 10:00:00");
+		goods.setEndTime("2018-8-8 11:00:00");
 		goods.setStatus(0);
 		goods.setSurplus(100);
 		goods.setTotality(100);
 
 		assertEquals(1, goodsDao.addGoods(goods));
 
-		assertEquals(3, goodsDao.listAllGoods().size());
+		assertEquals(6, goodsDao.listAllGoods().size());
 
 		Goods g1 = goodsDao.getGoodsByGoodsId(goods.getGoodsId());
 
 		assertEquals("description", g1.getDescription());
 		assertEquals("imageUrl", g1.getImageUrl());
-		assertEquals("2018-08-08 10:00:00", sdf.format(g1.getStartTime()));
+		assertEquals("2018-08-08 10:00:00.0", g1.getStartTime());
 		assertEquals(0, g1.getStatus());
 		assertEquals(100, g1.getSurplus());
 
@@ -63,7 +63,7 @@ public class GoodsDaoTest {
 		
 		goods.setDescription("desc");
 		goods.setImageUrl("imgUrl");
-		goods.setStartTime(sdf.parse("2019-08-08 10:00:00"));
+		goods.setStartTime("2019-08-08 10:00:00");
 		goods.setTotality(66);
 
 		assertEquals(1, goodsDao.updateGoods(goods));
@@ -72,7 +72,7 @@ public class GoodsDaoTest {
 
 		assertEquals("desc", g1.getDescription());
 		assertEquals("imgUrl", g1.getImageUrl());
-		assertEquals("2019-08-08 10:00:00", sdf.format(g1.getStartTime()));
+		assertEquals("2019-08-08 10:00:00.0", g1.getStartTime());
 		assertEquals(66, g1.getTotality());
 		
 		assertEquals(1, goodsDao.deleteGoods(goods.getGoodsId()));

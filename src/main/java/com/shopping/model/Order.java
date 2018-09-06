@@ -2,6 +2,8 @@ package com.shopping.model;
 
 import java.util.Date;
 
+import net.sf.json.JSONObject;
+
 public class Order {
 
 	private int goodsId;
@@ -11,6 +13,18 @@ public class Order {
 	private Date createTime;
 
 	private int status;
+	
+	public Order() {
+		super();
+	}
+
+	public Order(int goodsId, String userName, Date createTime, int status) {
+		super();
+		this.goodsId = goodsId;
+		this.userName = userName;
+		this.createTime = createTime;
+		this.status = status;
+	}
 
 	private Goods goods;
 
@@ -56,8 +70,7 @@ public class Order {
 
 	@Override
 	public String toString() {
-		return "Order [orderId=" + goodsId + ", userName=" + userName + ", createTime=" + createTime + ", status="
-				+ status + "]";
+		return JSONObject.fromObject(this).toString();
 	}
 
 }

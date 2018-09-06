@@ -21,7 +21,7 @@ public interface IGoodsDao {
 
 	public int getSurplusByGoodsId(int goodsId);
 
-	public int updateSurplus(@Param("goodsId") int goodsId, @Param("seckillTime") Date seckillTime);
+	public int updateSurplus(@Param("goodsId") int goodsId, @Param("seckillTime") Date date);
 
 	public int updateStatus(@Param("goodsId") int goodsId, @Param("status") int status);
 

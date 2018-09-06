@@ -35,17 +35,17 @@ public class OrderDaoTest {
 
 		Order order = new Order();
 		order.setGoodsId(34);
-		order.setUserName("user");
+		order.setUserName("user1");
 		order.setStatus(1);
 		order.setCreateTime(sdf.parse("2018-8-8 11:00:00"));
 
-		assertEquals(0, orderDao.addOrder(order));
+		assertEquals(1, orderDao.addOrder(order));
 		
-		assertEquals(2, orderDao.listByUserName("user").size());
+		assertEquals(1, orderDao.listByUserName("user1").size());
 		
 		assertEquals(2, orderDao.listAll().size());
 		
-		System.out.println(orderDao.listAll().get(0).getGoods());
+		System.out.println(orderDao.listByUserName("user1").get(0).getGoods());
 
 	}
 }
