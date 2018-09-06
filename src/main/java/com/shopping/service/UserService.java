@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.shopping.dao.UserDao;
+import com.shopping.dao.IUserDao;
 import com.shopping.model.User;
 
 @Service
@@ -17,7 +17,7 @@ public class UserService {
 	private static final String USERNAME_NOT_EXIST = "{\"status\":\"username_not_exist\"}";
 	
 	@Resource
-	private UserDao userDao;
+	private IUserDao userDao;
 	
 	public String login(User user) {
 		if (userDao.login(user) != null) {

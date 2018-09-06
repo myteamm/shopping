@@ -6,16 +6,10 @@
 
 	<settings>
 		<setting name="logImpl" value="STDOUT_LOGGING" />
+		<!-- 获取数据库自增主键值 -->
+		<setting name="useGeneratedKeys" value="true"/>
+		<!-- 开始驼峰命名转化 Table(start_time) -> entity(startTime) -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
-
-
-	<!-- 类型别名 -->
-	<typeAliases>
-		<typeAlias type="com.shopping.model.User" alias="User"/>
-	</typeAliases>
-
-	<mappers>
-		<mapper resource="com/shopping/model/User.xml"/>
-	</mappers>
 
 </configuration>
